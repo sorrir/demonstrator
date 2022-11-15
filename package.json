@@ -1,0 +1,50 @@
+{
+	"name": "@sorrir/demonstrator",
+	"version": "1.0.0",
+	"description": "Demonstrator for the SORRIR-Project.",
+	"main": "./dist/index.js",
+	"type": "./dist/index.d.ts",
+	"scripts": {
+		"lint-test": "eslint . --ext .ts",
+		"lint-fix": "eslint . --ext .ts --fix",
+		"build": "tsc --incremental",
+		"test": "jest -i",
+		"prepublishOnly": "rm -rf dist && npm run build",
+		"start": "node dist/app.js",
+		"getSetupInfo": "node -e 'console.log(JSON.stringify(require(\"@sorrir/framework\").getSetupInfo(),undefined,2))'",
+		"sendEvent": "node -e 'require(\"@sorrir/framework\").sendEvent()'",
+		"config-generator": "node dist/scripts/config-generator.js",
+		"pnpm-create-lock": "pnpm install --lockfile-only"
+	},
+	"pre-commit": [
+		"lint-fix",
+		"pnpm-create-lock"
+	],
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"@sorrir/framework": "^0.29.0",
+		"@sorrir/sorrir-logging": "^2.1.0",
+		"@types/yargs": "^17.0.10",
+		"lodash": "^4.17.21",
+		"typescript": "^4.5.5",
+		"uuid": "^8.3.2",
+		"yargs": "^17.4.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^24.9.1",
+		"@types/lodash": "^4.14.178",
+		"@types/node": "^12.12.53",
+		"@typescript-eslint/eslint-plugin": "^4.22.0",
+		"@typescript-eslint/parser": "^4.22.0",
+		"eslint": "^7.25.0",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"jest": "^26.0.0",
+		"pnpm": "^6.32.6",
+		"pre-commit": "^1.2.2",
+		"prettier": "^2.2.1",
+		"ts-jest": "^26.5.5"
+	}
+}

@@ -1,0 +1,620 @@
+{
+  "components": {
+    "acs": {
+      "name": "acs",
+      "ports": [
+        {
+          "name": "FROM_PMS",
+          "eventTypes": [
+            "REQUEST_ACCOUNT_DATA_BY_ID"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_PMS",
+          "eventTypes": [
+            "ANSWER_TO_ACCOUNT_DATA_REQUEST"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_SEC",
+          "eventTypes": [
+            "REQUEST_ACCOUNT_DATA_BY_LICENSE_PLATE"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_SEC",
+          "eventTypes": [
+            "ANSWER_TO_ACCOUNT_DATA_REQUEST"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_SXC",
+          "eventTypes": [
+            "REQUEST_ACCOUNT_DATA_BY_LICENSE_PLATE"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_SXC",
+          "eventTypes": [
+            "ANSWER_TO_ACCOUNT_DATA_REQUEST"
+          ],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "cs": {
+      "name": "cs",
+      "ports": [
+        {
+          "name": "TO_PSS",
+          "eventTypes": [
+            "SET_OCCUPIED"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_SEC",
+          "eventTypes": [
+            "CAR_DETECTED",
+            "CAR_DETECTION_ENDED"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_SXC",
+          "eventTypes": [
+            "CAR_DETECTED",
+            "CAR_DETECTION_ENDED"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_CM",
+          "eventTypes": [
+            "FEED_IMAGE_DATA"
+          ],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "us": {
+      "name": "us",
+      "ports": [
+        {
+          "name": "TO_WS",
+          "eventTypes": [
+            "REQUEST_RESERVATION",
+            "REQUEST_CANCELLATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_SEC",
+          "eventTypes": [
+            "REQUEST_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_SXC",
+          "eventTypes": [],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "pms": {
+      "name": "pms",
+      "ports": [
+        {
+          "name": "TO_PSS",
+          "eventTypes": [
+            "REQUEST_STATUS"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_PSS",
+          "eventTypes": [
+            "REPORT_STATUS"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_WS",
+          "eventTypes": [
+            "CONFIRM_RESERVATION",
+            "REJECT_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_WS",
+          "eventTypes": [
+            "REQUEST_RESERVATION"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_ACS",
+          "eventTypes": [
+            "REQUEST_ACCOUNT_DATA_BY_ID"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_ACS",
+          "eventTypes": [
+            "ANSWER_TO_ACCOUNT_DATA_REQUEST"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_SEC",
+          "eventTypes": [
+            "CHECK_FOR_RESERVATION"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_SEC",
+          "eventTypes": [
+            "RESERVATION_DOES_NOT_EXIST",
+            "RESOLVE_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_SXC",
+          "eventTypes": [
+            "CHECK_FOR_RESERVATION"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_SXC",
+          "eventTypes": [
+            "RESERVATION_DOES_NOT_EXIST",
+            "RESOLVE_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_PSP",
+          "eventTypes": [
+            "REQUEST_PAYMENT"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_PSP",
+          "eventTypes": [
+            "RESOLVE_PAYMENT",
+            "REJECT_PAYMENT"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "prs": {
+      "name": "prs",
+      "ports": [
+        {
+          "name": "FROM_SEC",
+          "eventTypes": [
+            "REQUEST_IMAGE_ANALYSIS"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_SXC",
+          "eventTypes": [
+            "REQUEST_IMAGE_ANALYSIS"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_SEC",
+          "eventTypes": [
+            "SUCCESSFUL_IMAGE_ANALYSIS",
+            "UNSUCCESSFUL_IMAGE_ANALYSIS"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_SXC",
+          "eventTypes": [
+            "SUCCESSFUL_IMAGE_ANALYSIS",
+            "UNSUCCESSFUL_IMAGE_ANALYSIS"
+          ],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "pss": {
+      "name": "pss",
+      "ports": [
+        {
+          "name": "FROM_PMS",
+          "eventTypes": [
+            "REQUEST_STATUS"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_CS",
+          "eventTypes": [
+            "SET_OCCUPIED",
+            "SET_EMPTY"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_PMS",
+          "eventTypes": [
+            "REPORT_STATUS"
+          ],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "sec": {
+      "name": "sec",
+      "ports": [
+        {
+          "name": "TO_PRS",
+          "eventTypes": [
+            "REQUEST_IMAGE_ANALYSIS"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_PRS",
+          "eventTypes": [
+            "SUCCESSFUL_IMAGE_ANALYSIS",
+            "UNSUCCESSFUL_IMAGE_ANALYSIS"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_CS",
+          "eventTypes": [
+            "CAR_DETECTED",
+            "CAR_DETECTION_ENDED"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_PMS",
+          "eventTypes": [
+            "CHECK_FOR_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_PMS",
+          "eventTypes": [
+            "RESERVATION_DOES_NOT_EXIST",
+            "RESOLVE_RESERVATION"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_ACS",
+          "eventTypes": [
+            "REQUEST_ACCOUNT_DATA_BY_LICENSE_PLATE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_ACS",
+          "eventTypes": [
+            "ANSWER_TO_ACCOUNT_DATA_REQUEST"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_BM",
+          "eventTypes": [
+            "OPEN",
+            "CLOSE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_CM",
+          "eventTypes": [
+            "REQUEST_IMAGE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_CM",
+          "eventTypes": [
+            "RESOLVE_IMAGE"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_US",
+          "eventTypes": [
+            "REQUEST_RESERVATION"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "sxc": {
+      "name": "sxc",
+      "ports": [
+        {
+          "name": "TO_PRS",
+          "eventTypes": [
+            "REQUEST_IMAGE_ANALYSIS"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_PRS",
+          "eventTypes": [
+            "SUCCESSFUL_IMAGE_ANALYSIS",
+            "UNSUCCESSFUL_IMAGE_ANALYSIS"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_US",
+          "eventTypes": [],
+          "direction": "in"
+        },
+        {
+          "name": "FROM_CS",
+          "eventTypes": [
+            "CAR_DETECTED",
+            "CAR_DETECTION_ENDED"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_PMS",
+          "eventTypes": [
+            "CHECK_FOR_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_PMS",
+          "eventTypes": [
+            "RESERVATION_DOES_NOT_EXIST",
+            "RESOLVE_RESERVATION"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_ACS",
+          "eventTypes": [
+            "REQUEST_ACCOUNT_DATA_BY_LICENSE_PLATE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_ACS",
+          "eventTypes": [
+            "ANSWER_TO_ACCOUNT_DATA_REQUEST"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_BM",
+          "eventTypes": [
+            "OPEN",
+            "CLOSE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "TO_CM",
+          "eventTypes": [
+            "REQUEST_IMAGE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_CM",
+          "eventTypes": [
+            "RESOLVE_IMAGE"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "ws": {
+      "name": "ws",
+      "ports": [
+        {
+          "name": "FROM_PMS",
+          "eventTypes": [
+            "CONFIRM_RESERVATION",
+            "REJECT_RESERVATION"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_PMS",
+          "eventTypes": [
+            "REQUEST_RESERVATION"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_US",
+          "eventTypes": [
+            "REQUEST_RESERVATION",
+            "REQUEST_CANCELLATION"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "bm": {
+      "name": "bm",
+      "ports": [
+        {
+          "name": "FROM_SC",
+          "eventTypes": [
+            "OPEN",
+            "CLOSE"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "cm": {
+      "name": "cm",
+      "ports": [
+        {
+          "name": "FROM_SC",
+          "eventTypes": [
+            "REQUEST_IMAGE"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_SC",
+          "eventTypes": [
+            "RESOLVE_IMAGE"
+          ],
+          "direction": "out"
+        },
+        {
+          "name": "FROM_CS",
+          "eventTypes": [
+            "FEED_IMAGE_DATA"
+          ],
+          "direction": "in"
+        }
+      ],
+      "tsType": "Component"
+    },
+    "psp": {
+      "name": "psp",
+      "ports": [
+        {
+          "name": "FROM_PMS",
+          "eventTypes": [
+            "REQUEST_PAYMENT"
+          ],
+          "direction": "in"
+        },
+        {
+          "name": "TO_PMS",
+          "eventTypes": [
+            "RESOLVE_PAYMENT",
+            "REJECT_PAYMENT"
+          ],
+          "direction": "out"
+        }
+      ],
+      "tsType": "Component"
+    }
+  },
+  "startStates": {
+    "acsStartStateEmpty": {
+      "state": {
+        "my": {
+          "accounts": {}
+        }
+      },
+      "events": [],
+      "tsType": "State"
+    },
+    "csStartState": {
+      "state": {},
+      "events": [],
+      "tsType": "State"
+    },
+    "usStartState": {
+      "state": {},
+      "events": [],
+      "tsType": "State"
+    },
+    "prsStartState": {
+      "state": {},
+      "events": [],
+      "tsType": "State"
+    },
+    "secStartState": {
+      "state": {
+        "fsm": "IDLE",
+        "my": {}
+      },
+      "events": [],
+      "tsType": "State"
+    },
+    "sxcStartState": {
+      "state": {
+        "fsm": "IDLE",
+        "my": {}
+      },
+      "events": [],
+      "tsType": "State"
+    },
+    "wsStartState": {
+      "state": {},
+      "events": [],
+      "tsType": "State"
+    },
+    "bmStartState": {
+      "state": {
+        "fsm": "CLOSED"
+      },
+      "events": [],
+      "tsType": "State"
+    },
+    "cmStartState": {
+      "state": {
+        "fsm": "IDLE",
+        "my": {}
+      },
+      "events": [],
+      "tsType": "State"
+    },
+    "pspStartState": {
+      "state": {},
+      "events": [],
+      "tsType": "State"
+    }
+  },
+  "stateGenerators": {
+    "acsStartStateGenerator": {
+      "numAccounts": "number"
+    },
+    "pmsStartStateGenerator": {
+      "rows": "number",
+      "columns": "number",
+      "levels": "number",
+      "accessibilitySpaces": "number",
+      "eChargingSpaces": "number",
+      "accessibilityAndEChargingSpaces": "number"
+    },
+    "pssStartStateGenerator": {
+      "row": "number",
+      "column": "number",
+      "level": "number"
+    }
+  }
+}

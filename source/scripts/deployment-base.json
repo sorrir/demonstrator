@@ -1,0 +1,85 @@
+{
+    "HostConfiguration": {
+        "a": {
+            "host": "localhost",
+            "port": 1234
+        },
+        "debug": {
+            "host": "localhost",
+            "port": 1235
+        },
+        "ext": {
+            "host": "localhost",
+            "port": 8000
+        }
+    },
+    "DeploymentConfiguration": {
+        "a": {
+            "components": [
+                "pms",
+                "acs",
+                "prs",
+                "sec",
+                "bm",
+                "cm",
+                "psp",
+                "sxc",
+                "acs",
+                "ws"
+            ]
+        },
+        "debug": {
+            "components": []
+        },
+        "ext": {
+            "components": [
+                "us",
+                "cs"
+            ]
+        }
+    },
+    "CommunicationConfiguration": {
+        "connectionTechs": [
+            {
+                "targetContainer": "dummy",
+                "targetComponent": "dummy",
+                "targetPort": "dummy",
+                "sourceComponent": "dummy",
+                "sourcePort": "dummy",
+                "sourceContainer": "dummy",
+                "commOption": "REST"
+              }
+        ]
+    },
+    "MQTTConfiguration": {
+        "host": "test.mosquitto.org"
+    },
+    "BLEConfiguration": {
+        "a": {
+            "sendHost": "localhost",
+            "sendPort": 8080,
+            "listenHost": "localhost",
+            "listenPort": 8081
+        },
+        "ext": {
+            "sendHost": "localhost",
+            "sendPort": 8080,
+            "listenHost": "localhost",
+            "listenPort": 8081
+        }
+    },
+    "ShadowModeConfiguration": {},
+    "DebuggingConfiguration": {
+        "a": {
+            "debuggingAgent": {
+                "enabled": true
+            }
+        },
+        "debug": {
+            "debuggingAgent": {
+                "enabled": true,
+                "isServer": true
+            }
+        }
+    }
+}

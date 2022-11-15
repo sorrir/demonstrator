@@ -1,0 +1,101 @@
+{
+  "HostConfiguration": {
+    "a": {
+      "host": "localhost",
+      "port": 2001
+    },
+    "b": {
+      "host": "localhost",
+      "port": 2002
+    },
+    "c": {
+      "host": "localhost",
+      "port": 2003
+    },
+    "debug": {
+      "host": "localhost",
+      "port": 2100
+    },
+    "ext": {
+      "host": "localhost",
+      "port": 8000
+    }
+  },
+  "DeploymentConfiguration": {
+    "a": {
+      "components": [
+        "pms",
+        "acs",
+        "prs",
+        "sec",
+        "bm_sec",
+        "cm_sec",
+        "sxc",
+        "bm_sxc",
+        "cm_sxc",
+        "psp",
+        "ws",
+        "pss_0_0_0",
+        "pss_0_1_0",
+        "pss_1_0_0",
+        "pss_1_1_0"
+      ]
+    },
+    "b": {
+      "components": [
+      ]
+    },
+    "c": {
+      "components": [
+      ]
+    },
+    "debug": {
+      "components": []
+    },
+    "ext": {
+      "components": [
+        "cs",
+        "us"
+      ]
+    }
+  },
+  "CommunicationConfiguration": {
+    "connectionTechs": []
+  },
+  "MQTTConfiguration": {
+    "host": "test.mosquitto.org"
+  },
+  "BLEConfiguration": {
+    "a": {
+      "sendHost": "localhost",
+      "sendPort": 8080,
+      "listenHost": "localhost",
+      "listenPort": 8081
+    },
+    "ext": {
+      "sendHost": "localhost",
+      "sendPort": 8080,
+      "listenHost": "localhost",
+      "listenPort": 8081
+    }
+  },
+  "ShadowModeConfiguration": {},
+  "DebuggingConfiguration": {
+    "a": {
+      "debuggingAgent": {
+        "enabled": true,
+	"isServer": false,
+	"webSocketPort": 3001,
+        "checkForChangesIntervalMs": 1000
+      }
+    },
+    "debug": {
+      "debuggingAgent": {
+        "enabled": true,
+        "isServer": true,
+        "webSocketPort": 3001,
+	"checkForChangesIntervalMs": 1000
+      }
+    }
+  }
+}

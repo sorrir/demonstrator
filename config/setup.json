@@ -1,0 +1,387 @@
+{
+  "componentInstances": {
+    "pms": [
+      {
+        "name": "pms",
+        "startStateGenerator": "pmsStartStateGenerator",
+        "startStateArgs": {
+          "rows": 2,
+          "columns": 1,
+          "levels": 2,
+          "accessibilitySpaces": 0,
+          "eChargingSpaces": 0,
+          "accessibilityAndEChargingSpaces": 0
+        }
+      }
+    ],
+    "pss": [
+      {
+        "name": "pss_0_0_0",
+        "startStateGenerator": "pssStartStateGenerator",
+        "startStateArgs": {
+          "row": 0,
+          "column": 0,
+          "level": 0
+        }
+      },
+      {
+        "name": "pss_0_1_0",
+        "startStateGenerator": "pssStartStateGenerator",
+        "startStateArgs": {
+          "row": 1,
+          "column": 0,
+          "level": 0
+        }
+      },
+      {
+        "name": "pss_1_0_0",
+        "startStateGenerator": "pssStartStateGenerator",
+        "startStateArgs": {
+          "row": 0,
+          "column": 0,
+          "level": 1
+        }
+      },
+      {
+        "name": "pss_1_1_0",
+        "startStateGenerator": "pssStartStateGenerator",
+        "startStateArgs": {
+          "row": 1,
+          "column": 0,
+          "level": 1
+        }
+      }
+    ],
+    "prs": [
+      {
+        "name": "prs",
+        "startState": "prsStartState"
+      }
+    ],
+    "acs": [
+      {
+        "name": "acs",
+        "startStateGenerator": "acsStartStateGenerator",
+        "startStateArgs": {
+          "numAccounts": 6
+        }
+      }
+    ],
+    "cs": [
+      {
+        "name": "cs",
+        "startState": "csStartState"
+      }
+    ],
+    "us": [
+      {
+        "name": "us",
+        "startState": "usStartState"
+      }
+    ],
+    "ws": [
+      {
+        "name": "ws",
+        "startState": "wsStartState"
+      }
+    ],
+    "sec": [
+      {
+        "name": "sec",
+        "startState": "secStartState"
+      }
+    ],
+    "sxc": [
+      {
+        "name": "sxc",
+        "startState": "sxcStartState"
+      }
+    ],
+    "bm": [
+      {
+        "name": "bm_sec",
+        "startState": "bmStartState"
+      },
+      {
+        "name": "bm_sxc",
+        "startState": "bmStartState"
+      }
+    ],
+    "cm": [
+      {
+        "name": "cm_sec",
+        "startState": "cmStartState"
+      },
+      {
+        "name": "cm_sxc",
+        "startState": "cmStartState"
+      }
+    ],
+    "psp": [
+      {
+        "name": "psp",
+        "startState": "pspStartState"
+      }
+    ]
+  },
+  "connections": [
+    {
+      "sourceComponent": "ws",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_WS"
+    },
+    {
+      "sourceComponent": "us",
+      "sourcePort": "TO_WS",
+      "targetComponent": "ws",
+      "targetPort": "FROM_US"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_WS",
+      "targetComponent": "ws",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "us",
+      "sourcePort": "TO_SXC",
+      "targetComponent": "sxc",
+      "targetPort": "FROM_US"
+    },
+    {
+      "sourceComponent": "us",
+      "sourcePort": "TO_SEC",
+      "targetComponent": "sec",
+      "targetPort": "FROM_US"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_ACS",
+      "targetComponent": "acs",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "acs",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_ACS"
+    },
+    {
+      "sourceComponent": "sec",
+      "sourcePort": "TO_PRS",
+      "targetComponent": "prs",
+      "targetPort": "FROM_SEC"
+    },
+    {
+      "sourceComponent": "prs",
+      "sourcePort": "TO_SEC",
+      "targetComponent": "sec",
+      "targetPort": "FROM_PRS"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_SEC",
+      "targetComponent": "sec",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "sec",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_SEC"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_SEC",
+      "targetComponent": "sec",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "sec",
+      "sourcePort": "TO_ACS",
+      "targetComponent": "acs",
+      "targetPort": "FROM_SEC"
+    },
+    {
+      "sourceComponent": "acs",
+      "sourcePort": "TO_SEC",
+      "targetComponent": "sec",
+      "targetPort": "FROM_ACS"
+    },
+    {
+      "sourceComponent": "sec",
+      "sourcePort": "TO_BM",
+      "targetComponent": "bm_sec",
+      "targetPort": "FROM_SC"
+    },
+    {
+      "sourceComponent": "sec",
+      "sourcePort": "TO_CM",
+      "targetComponent": "cm_sec",
+      "targetPort": "FROM_SC"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_CM",
+      "targetComponent": "cm_sec",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "cm_sec",
+      "sourcePort": "TO_SC",
+      "targetComponent": "sec",
+      "targetPort": "FROM_CM"
+    },
+    {
+      "sourceComponent": "psp",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_PSP"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_PSP",
+      "targetComponent": "psp",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "sxc",
+      "sourcePort": "TO_PRS",
+      "targetComponent": "prs",
+      "targetPort": "FROM_SXC"
+    },
+    {
+      "sourceComponent": "prs",
+      "sourcePort": "TO_SXC",
+      "targetComponent": "sxc",
+      "targetPort": "FROM_PRS"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_SXC",
+      "targetComponent": "sxc",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "sxc",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_SXC"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_SXC",
+      "targetComponent": "sxc",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "sxc",
+      "sourcePort": "TO_ACS",
+      "targetComponent": "acs",
+      "targetPort": "FROM_SXC"
+    },
+    {
+      "sourceComponent": "acs",
+      "sourcePort": "TO_SXC",
+      "targetComponent": "sxc",
+      "targetPort": "FROM_ACS"
+    },
+    {
+      "sourceComponent": "sxc",
+      "sourcePort": "TO_BM",
+      "targetComponent": "bm_sxc",
+      "targetPort": "FROM_SC"
+    },
+    {
+      "sourceComponent": "sxc",
+      "sourcePort": "TO_CM",
+      "targetComponent": "cm_sxc",
+      "targetPort": "FROM_SC"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_CM",
+      "targetComponent": "cm_sxc",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "cm_sxc",
+      "sourcePort": "TO_SC",
+      "targetComponent": "sxc",
+      "targetPort": "FROM_CM"
+    },
+    {
+      "sourceComponent": "pss_0_0_0",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_PSS"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_0_0_0",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_0_0_0",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "pss_0_1_0",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_PSS"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_0_1_0",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_0_1_0",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "pss_1_0_0",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_PSS"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_1_0_0",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_1_0_0",
+      "targetPort": "FROM_CS"
+    },
+    {
+      "sourceComponent": "pss_1_1_0",
+      "sourcePort": "TO_PMS",
+      "targetComponent": "pms",
+      "targetPort": "FROM_PSS"
+    },
+    {
+      "sourceComponent": "pms",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_1_1_0",
+      "targetPort": "FROM_PMS"
+    },
+    {
+      "sourceComponent": "cs",
+      "sourcePort": "TO_PSS",
+      "targetComponent": "pss_1_1_0",
+      "targetPort": "FROM_CS"
+    }
+  ]
+}

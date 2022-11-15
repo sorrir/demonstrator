@@ -1,0 +1,10 @@
+export enum UsEventType {
+  REQUEST_RESERVATION = "REQUEST_RESERVATION",
+  REQUEST_CANCELLATION = "REQUEST_CANCELLATION",
+}
+
+export enum UsPort {
+  TO_WS = "TO_WS",
+  TO_SEC = "TO_SEC",
+  TO_SXC = "TO_SXC",
+}
